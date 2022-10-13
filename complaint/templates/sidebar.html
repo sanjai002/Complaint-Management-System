@@ -1,0 +1,58 @@
+{% load static %}
+<aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+
+
+                  <p class="centered"><a href="{% url 'profile' %}">
+{% if not request.user.tbluser_set.all.0.userimage %}
+<img src="{% static 'user/noimage.png' %}"  class="img-circle" width="70" height="70" >
+{% else %}
+  <img src="{{request.user.tbluser_set.all.0.userimage.url}}" class="img-circle" width="70" height="70">
+
+{% endif %}
+</a>
+</p>
+
+                  <h5 class="centered">{{request.user.first_name}}</h5>
+
+
+                  <li class="mt">
+                      <a href="{% url 'user_home' %}">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Account Setting</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="{% url 'profile' %}">Profile</a></li>
+                          <li><a  href="{% url 'changepwd_user' %}">Change Password</a></li>
+
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="{% url 'register_complaint' %}" >
+                          <i class="fa fa-book"></i>
+                          <span>Lodge Complaint</span>
+                      </a>
+                    </li>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="{% url 'complaint_history' %}" >
+                          <i class="fa fa-tasks"></i>
+                          <span>Complaint History</span>
+                      </a>
+
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>

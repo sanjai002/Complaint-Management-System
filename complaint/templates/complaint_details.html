@@ -1,0 +1,165 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>CMS | Complaint Details</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'user/assets/css/bootstrap.css' %}" rel="stylesheet">
+    <!--external css-->
+    <link href="{% static 'user/assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+   <link href="{% static 'user/assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'user/assets/css/style-responsive.css' %}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <section id="container" >
+    {% include 'header.html' %}
+    {% include 'sidebar.html' %}
+      <section id="main-content" style="padding-left:5%; color:#000">
+          <section class="wrapper site-min-height">
+          	<h3><i class="fa fa-angle-right"></i> Complaint Details</h3>
+            <hr />
+
+
+          	<div class="row mt">
+            <label class="col-sm-2 col-sm-2 control-label"><b>Complaint Number : </b></label>
+          		<div class="col-sm-4">
+          		<p>{{complaint.id}}</p>
+          		</div>
+<label class="col-sm-2 col-sm-2 control-label"><b>Reg. Date :</b></label>
+              <div class="col-sm-4">
+              <p>{{complaint.regdate}}</p>
+              </div>
+          	</div>
+
+
+<div class="row mt">
+            <label class="col-sm-2 col-sm-2 control-label"><b>Category :</b></label>
+              <div class="col-sm-4">
+              <p>{{complaint.category}}</p>
+              </div>
+<label class="col-sm-2 col-sm-2 control-label"><b>Sub Category :</b> </label>
+              <div class="col-sm-4">
+              <p>{{complaint.subcategory}}</p>
+              </div>
+            </div>
+
+
+
+  <div class="row mt">
+            <label class="col-sm-2 col-sm-2 control-label"><b>Complaint Type :</b></label>
+              <div class="col-sm-4">
+              <p>{{complaint.complainttype}}</p>
+              </div>
+<label class="col-sm-2 col-sm-2 control-label"><b>State :</b></label>
+              <div class="col-sm-4">
+              <p>{{complaint.state}}</p>
+              </div>
+            </div>
+
+
+
+  <div class="row mt">
+            <label class="col-sm-2 col-sm-2 control-label"><b>Nature of Complaint :</b></label>
+              <div class="col-sm-4">
+              <p>{{complaint.noc}}</p>
+              </div>
+<label class="col-sm-2 col-sm-2 control-label"><b>File :</b></label>
+              <div class="col-sm-4">
+              <p>{% if not complaint.complaintfile %}
+  File NA
+{% else %}
+<a href="{{complaint.complaintfile.url}}" target='_blank'> View File</a>
+{% endif %}
+
+              </p>
+              </div>
+            </div>
+ <div class="row mt">
+            <label class="col-sm-2 col-sm-2 control-label"><b>Complaint Details </label>
+              <div class="col-sm-10">
+              <p>{{complaint.complaintdetail}}</p>
+              </div>
+
+            </div>
+
+
+
+
+ <div class="row mt">
+
+<label class="col-sm-2 col-sm-2 control-label"><b>Remark:</b></label>
+              <div class="col-sm-10">
+   {% if not complaint.status %}
+	No Remark Yet
+{% else %}
+	 {{complaint.remark}}
+	 {% endif %}&nbsp;&nbsp; <br /><b>Remark Date: {% if not complaint.status %}
+	None
+{% else %}
+	 {{complaint.remarkdate}}
+	 {% endif %}</b>
+              </div>
+            </div>
+
+
+<?php } ?>
+
+ <div class="row mt">
+
+<label class="col-sm-2 col-sm-2 control-label"><b>Final Status :</b></label>
+              <div class="col-sm-4">
+              <p style="color:red">
+
+{% if not complaint.status %}
+	Not Process Yet
+{% else %}
+	 {{complaint.status}}
+	 {% endif %}
+</p>
+              </div>
+            </div>
+
+
+<?php } ?>
+		</section><! --/wrapper -->
+      </section><!-- /MAIN CONTENT -->
+        {% include 'footer.html' %}
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="{% static 'user/assets/js/jquery.js' %}"></script>
+    <script src="{% static 'user/assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'user/assets/js/jquery-ui-1.9.2.custom.min.js' %}"></script>
+    <script src="{% static 'user/assets/js/jquery.ui.touch-punch.min.js' %}"></script>
+    <script class="include" type="text/javascript" src="{% static 'user/assets/js/jquery.dcjqaccordion.2.7.js' %}"></script>
+    <script src="{% static 'user/assets/js/jquery.scrollTo.min.js' %}"></script>
+
+
+
+    <!--common script for all pages-->
+    <script src="{% static 'user/assets/js/common-scripts.js' %}"></script>
+
+    <!--script for this page-->
+
+  <script>
+      //custom select box
+
+      $(function(){
+          $('select.styled').customSelect();
+      });
+
+  </script>
+
+  </body>
+</html>
+
