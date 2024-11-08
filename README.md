@@ -1,6 +1,6 @@
-# Diet App
+# Complaint Management System
 
-Diet App is a Django-based web application to help users track their food consumption and manage their dietary goals.
+A web-based application for managing complaints, designed to simplify the process of submitting, reviewing, and resolving complaints within an organization or institution. This system allows users to submit complaints, and administrators can view, prioritize, and update the status of each complaint.
 
 
 ## Installation
